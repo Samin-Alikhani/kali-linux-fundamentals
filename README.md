@@ -1,12 +1,12 @@
 # Kali Linux Fundamentals
 
-A hands-on introduction to Linux administration and security-tool selection in a Kali Linux lab environment. This project demonstrates how I inspect a host, interpret basic network information, navigate the filesystem, work with environment variables, and reason about permissions. It also documents how I would select security tools for common defensive and investigative scenarios.
+This project documents my hands-on practice with Linux administration and introductory security concepts in an authorized Kali Linux lab environment. I worked with system information, network configuration, filesystem navigation, environment variables, and file permissions. I also researched how several Kali tools apply to common security scenarios.
 
-> **Ethics and scope:** All commands were used in an authorized lab environment. Network examples use documentation-only addresses. No credentials, student identifiers, private host details, or original course materials are included.
+Machine-specific information and original course materials have been excluded from this repository.
 
-## Why this project matters
+## Project Overview
 
-Linux and networking fundamentals are essential in a Security Operations Center (SOC). Analysts regularly inspect host state, review interfaces and routes, resolve domains, interpret permissions, and choose the right tool without altering evidence or creating unnecessary network noise.
+I built this project to strengthen the Linux and networking fundamentals used in SOC and entry-level security roles. The exercises helped me move beyond memorizing commands by focusing on how to interpret their output and apply it during troubleshooting or security analysis.
 
 ## Skills demonstrated
 
@@ -66,7 +66,3 @@ Outputs are intentionally omitted because they can expose usernames, hostnames, 
 ## What I would build next
 
 The next iteration will turn these fundamentals into a small SOC investigation: generate benign authentication activity, forward logs to Wazuh or Splunk, identify failed-login patterns, and document the triage process with a timeline and detection notes.
-
-## Responsible-use note
-
-Reconnaissance and analysis tools should only be used on systems and networks you own or are explicitly authorized to test.
