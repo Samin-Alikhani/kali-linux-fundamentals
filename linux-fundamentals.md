@@ -2,7 +2,7 @@
 
 In this lab, I practiced basic Linux commands in Kali Linux and spent time understanding what the output actually meant. This page summarizes the main commands I worked with and what I learned from them. I left out my original screenshots and machine-specific output.
 
-## Checking when the system started
+## Checking System Start
 
 ```bash
 uptime -s
@@ -10,7 +10,7 @@ uptime -s
 
 This command showed the date and time when the system was last started. I learned that `uptime` can provide more than the amount of time a system has been running; the `-s` option gives the exact start time.
 
-## Viewing network information
+## Viewing Network Information
 
 ```bash
 ip addr
@@ -20,7 +20,7 @@ I used `ip addr` to view the network interfaces on my Kali system and find their
 
 This exercise also helped me practice reading CIDR notation. For example, an address ending in `/24` uses the first 24 bits for the network portion. The assignment used the older term "Class C," but `/24` is the notation I am more likely to see today.
 
-## Checking disk space and directory size
+## Checking Disk Space and Directory Size
 
 ```bash
 df -h
@@ -29,7 +29,7 @@ du -sh <directory>
 
 This exercise clarified the difference between two similar commands. `df -h` shows the used and available space on mounted filesystems, while `du -sh` shows how much space a particular directory uses. The `-h` option makes the sizes easier to read.
 
-## Finding the kernel version
+## Finding the Kernel Version
 
 ```bash
 uname -r
@@ -37,7 +37,7 @@ uname -r
 
 This displayed the version of the Linux kernel running on the system. This information can be useful when checking software compatibility or researching whether a system needs a security update.
 
-## Looking up a domain name
+## Looking up a Domain Name
 
 ```bash
 dig example.com
@@ -45,7 +45,7 @@ dig example.com
 
 I used `dig` to see how a domain name resolves to an IP address. The output included the returned DNS records and information about the DNS server that answered the request. I used `example.com` here instead of including details from the lab environment.
 
-## Learning the filesystem structure
+## Learning the Filesystem Structure
 
 I also reviewed several common Linux directories:
 
@@ -61,7 +61,7 @@ I also reviewed several common Linux directories:
 
 Reviewing the filesystem structure helped me better understand where configuration files, programs, and logs are normally stored.
 
-## Checking my current directory
+## Checking My Current Directory
 
 ```bash
 pwd
@@ -69,7 +69,7 @@ pwd
 
 `pwd` stands for "print working directory." It displays the full path of the directory I am currently in. This is a simple command, but it is helpful to check my location before working with files.
 
-## Understanding environment variables
+## Understanding Environment Variables
 
 ```bash
 echo "$SHELL"
@@ -80,7 +80,7 @@ I learned that an environment variable is a named value used by the shell and ot
 
 `PATH` contains the directories the shell searches when I enter a command without its full location. For example, when I type `ls`, the shell searches the directories listed in `PATH` to find the executable. This helped me understand why adding a program's directory to `PATH` allows it to be run by name.
 
-## File ownership and deletion
+## File Ownership and Deletion
 
 For the final exercise, I created an empty temporary file and changed its owner to `root`:
 
@@ -94,6 +94,6 @@ rm temp.txt
 
 I needed `sudo` to change the owner because changing file ownership is a privileged action. I could still delete the file without `sudo`, which showed me that deleting a file depends mainly on the permissions of the directory containing it, not only on who owns the file itself.
 
-## What I took away from the lab
+## What I Took Away from the Lab
 
 The biggest takeaway for me was that knowing a command is only the first step. I also need to understand what its output means and why I would use it. This lab gave me a stronger foundation in navigating Linux, checking system and network information, and understanding how ownership and permissions work.
