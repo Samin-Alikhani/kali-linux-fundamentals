@@ -1,54 +1,59 @@
-# Kali Security Tools: Scenario-Based Selection
+# Kali Security Tools
 
-This section documents tool-selection reasoning from the research portion of the lab. It does not claim that each tool was executed. Commands and examples are limited to authorized environments.
+The second part of the lab focused on choosing a Kali Linux tool for different security scenarios and explaining why it would be a good choice. I researched the tools below, but I did not run them as part of this lab.
 
-## Tool map
+## Tools I researched
 
-| Scenario | Tool | Why it fits | Important limitation |
-| --- | --- | --- | --- |
-| Preserve a drive for later analysis | Guymager | Creates a forensic image so analysis can occur on a copy rather than the original device | Imaging does not decrypt protected data; chain of custody and hashing still matter |
-| Find an HTTPS service on an authorized subnet | Nmap | Actively identifies hosts with TCP port 443 open | Active probes may be logged or trigger alerts |
-| Observe HTTPS-related traffic passively | Wireshark | Captures and filters visible packets without probing target hosts | Visibility depends on network position; encryption hides application content |
-| Discover nearby Bluetooth devices over time | BlueHydra | Tracks Classic Bluetooth and Bluetooth Low Energy devices | Discovery does not prove that a device is malicious |
-| Review compiled Android application logic | JADX | Decompiles APK/DEX bytecode into readable Java-like code | Reconstructed output is not the exact original source and may be obfuscated |
+| Scenario | Tool | Why I chose it |
+| --- | --- | --- |
+| Create a copy of a drive before examining it | Guymager | It can create a forensic image without requiring analysis on the original drive |
+| Find a web server using TCP port 443 | Nmap | It can scan an authorized network to find hosts with a specific port open |
+| Look for traffic using TCP port 443 without scanning | Wireshark | It can capture and filter traffic that is visible from the system running it |
+| Monitor nearby Bluetooth devices | BlueHydra | It can discover and track Classic Bluetooth and Bluetooth Low Energy devices |
+| Review the code of a compiled Android application | JADX | It can decompile APK and DEX files into readable Java-like code |
 
-## 1. Guymager: forensic acquisition first
+## Guymager
 
-When a storage device may contain evidence, the first priority is preservation. Guymager can create a bit-for-bit forensic image in common evidence formats. Analysis should then occur on a verified copy, reducing the chance of changing the original media.
+For a scenario involving a hard drive that might contain evidence, I chose Guymager. It can create a bit-for-bit image of a storage device so the copy can be examined instead of working directly with the original drive.
 
-**Decision principle:** acquire and verify first; analyze second.
+The main idea I learned from this scenario was to preserve the original evidence first. Creating an image does not decrypt an encrypted drive, but it gives the investigator a copy to work with and helps protect the original device from accidental changes.
 
-## 2. Nmap: active discovery
+## Nmap
 
-Nmap is appropriate when an authorized tester needs to determine which hosts expose a particular service. A conceptual scan of a documentation-only `/24` network for HTTPS would be:
+I chose Nmap for finding a host with TCP port 443 open on an authorized network. Nmap is an active scanning tool, which means it sends traffic to hosts and records their responses.
 
-```bash
+An example using an address range reserved for documentation is:
+
+~~~bash
 nmap -p 443 192.0.2.0/24
-```
+~~~
 
-The scan asks which reachable hosts listen on TCP port 443. An open port suggests a service is accepting connections, but it does not by itself establish that the service is secure, vulnerable, or even HTTPS.
+The command checks the /24 network for hosts listening on port 443. An open port shows that a service is accepting connections, but it does not prove that the service is vulnerable.
 
-## 3. Wireshark: passive packet analysis
+## Wireshark
 
-Wireshark can inspect traffic visible from the capture point. A display filter such as the following narrows the view to traffic using TCP port 443:
+For the passive version of the network scenario, I chose Wireshark. Instead of sending scan traffic, Wireshark captures traffic that is already visible from the system's location on the network.
 
-```text
+This display filter can narrow the captured traffic to TCP port 443:
+
+~~~text
 tcp.port == 443
-```
+~~~
 
-This can help identify endpoints communicating over the expected port without sending scan probes. Passive does not mean invisible in every operational sense, and switched networks may limit what a workstation can observe.
+I learned that passive monitoring has limits. Wireshark can only show traffic available at the capture point, and encryption prevents it from automatically showing the contents of HTTPS communication.
 
-## 4. BlueHydra: Bluetooth discovery and tracking
+## BlueHydra
 
-BlueHydra is designed to discover and track nearby Classic Bluetooth and Bluetooth Low Energy devices over time. It can support situational awareness by showing repeated or unfamiliar nearby devices, but further evidence is required before labeling any device as an attacker.
+I chose BlueHydra for the Bluetooth scenario because it can discover and track both Classic Bluetooth and Bluetooth Low Energy devices over time.
 
-## 5. JADX: Android decompilation
+It could help identify unfamiliar devices nearby, but seeing a device does not prove that it is attacking anything. More evidence would be needed before deciding that a device is malicious.
 
-JADX converts compiled Android DEX bytecode into a readable Java-like representation. A reviewer can use that output to look for suspicious logic, insecure storage, hard-coded secrets, excessive permissions, or unsafe network behavior. Obfuscation and compiler transformations can reduce readability, so findings should be validated with other static or dynamic techniques.
+## JADX
 
-## Active versus passive collection
+I chose JADX for reviewing an Android application when the original source code is unavailable. JADX can decompile APK and DEX files and produce readable Java-like code for review.
 
-- **Active reconnaissance** sends traffic to a target to elicit a response. Nmap is the example in this lab.
-- **Passive monitoring** observes traffic available at the capture point. Wireshark is the example in this lab.
+The recovered code is not exactly the same as the developer's original source code. It may also be harder to understand if the application was obfuscated. Even with those limits, it can help a reviewer examine the application's logic and look for insecure behavior.
 
-The correct approach depends on authorization, objectives, network visibility, evidence-handling requirements, and the risk of disrupting or alerting the environment.
+## What I learned
+
+The biggest difference in the network scenarios was active scanning versus passive monitoring. Nmap sends traffic to find hosts and services, while Wireshark observes traffic that is already available to capture. I also learned that choosing a tool is only part of the process; I need to understand what the tool can confirm and what its results cannot prove.
