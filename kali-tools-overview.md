@@ -2,9 +2,9 @@
 
 The second part of the lab focused on choosing a Kali Linux tool for different security scenarios and explaining why it would be a good choice. I researched the tools below, but I did not run them as part of this lab.
 
-## Tools I researched
+## Tools I Researched
 
-| Scenario | Tool | Why I chose it |
+| Scenario | Tool | Why I Chose It |
 | --- | --- | --- |
 | Create a copy of a drive before examining it | Guymager | It can create a forensic image without requiring analysis on the original drive |
 | Find a web server using TCP port 443 | Nmap | It can scan an authorized network to find hosts with a specific port open |
@@ -54,6 +54,6 @@ I chose JADX for reviewing an Android application when the original source code 
 
 The recovered code is not exactly the same as the developer's original source code. It may also be harder to understand if the application was obfuscated. Even with those limits, it can help a reviewer examine the application's logic and look for insecure behavior.
 
-## What I learned
+## What I Learned
 
 The biggest difference in the network scenarios was active scanning versus passive monitoring. Nmap sends traffic to find hosts and services, while Wireshark observes traffic that is already available to capture. I also learned that choosing a tool is only part of the process; I need to understand what the tool can confirm and what its results cannot prove.
