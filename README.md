@@ -18,7 +18,6 @@ I built this project to strengthen my Linux and networking fundamentals. The exe
 - Linux ownership and permission reasoning
 - Active reconnaissance versus passive monitoring
 - Security-tool selection for forensics, networking, Bluetooth, and Android analysis
-- Clear technical documentation and evidence sanitization
 
 ## Project contents
 
