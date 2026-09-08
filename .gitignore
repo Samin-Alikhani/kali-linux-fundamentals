@@ -1,0 +1,16 @@
+# Local operating-system files
+.DS_Store
+Thumbs.db
+
+# Editor settings
+.idea/
+.vscode/
+*.swp
+
+# Never commit source coursework or private evidence
+Lab1.pdf
+*.pcap
+*.pcapng
+*.log
+secrets/
+private/
