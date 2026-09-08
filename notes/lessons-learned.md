@@ -1,29 +1,18 @@
 # Lessons Learned
 
-## Technical takeaways
+This lab helped me connect basic Linux commands with the information they provide about a system. My main takeaways were:
 
-- A Linux command is most useful when I can explain what its output means and how it supports an investigation.
-- `ip` is the modern toolset for inspecting interfaces and routes; CIDR notation is clearer than legacy classful terminology.
-- `df` answers a filesystem-capacity question, while `du` answers a file-or-directory usage question.
-- `PATH` affects which executable the shell selects, so directory order and unexpected entries can have security consequences.
-- File ownership alone does not determine whether a file can be deleted; permissions on the containing directory are critical.
-- Active discovery and passive observation have different visibility, authorization, and detection tradeoffs.
-- Forensic work begins with preserving evidence and validating the copy before analysis.
-- Decompilation produces a useful reconstruction, not the developer's exact original source code.
+- `ip addr` shows network interfaces and their assigned addresses.
+- CIDR notation such as `/24` is more useful today than older terms such as "Class C."
+- `df` reports space for mounted filesystems, while `du` measures the space used by files or directories.
+- `PATH` tells the shell where to search for commands.
+- Changing the owner of a file requires elevated privileges, but deleting a file depends mainly on the permissions of its containing directory.
+- Nmap performs active scanning, while Wireshark can be used for passive traffic analysis.
+- A drive should be imaged before forensic analysis so the original evidence is not changed.
+- Decompiled Android code is a reconstructed version of the application, not the exact original source code.
 
-## Documentation takeaways
+The lab also reminded me to be precise when describing my work. I should clearly separate tools I actually used from tools I only researched for a scenario.
 
-- A portfolio should explain decisions and observations instead of reproducing assignment questions and answers.
-- Screenshots should support a specific claim, not merely prove that a command was typed.
-- Terminal evidence must be reviewed for names, identifiers, credentials, IP addresses, hostnames, and infrastructure details before publication.
-- It is important to distinguish tools I used from tools I researched or selected for a scenario.
+## Next step
 
-## Next steps
-
-1. Add three to five carefully sanitized screenshots that support the strongest hands-on sections.
-2. Build a small log-analysis project using Wazuh or Splunk and document an alert-triage workflow.
-3. Practice explaining the ownership exercise and active-versus-passive distinction as short interview answers.
-
-## Resume-ready project bullet
-
-> Documented Linux host and network inspection, DNS resolution, filesystem analysis, environment variables, and ownership behavior in Kali Linux; compared active reconnaissance, passive traffic analysis, forensic acquisition, Bluetooth discovery, and Android decompilation tools for security use cases.
+My next goal is to apply these Linux and networking fundamentals in a small log-analysis project. I would like to generate test authentication activity, review the resulting logs, and document how I identify and investigate failed login attempts.
