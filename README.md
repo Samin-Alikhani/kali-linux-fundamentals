@@ -6,7 +6,7 @@ Machine-specific information and original course materials have been excluded fr
 
 ## Project Overview
 
-I built this project to strengthen the Linux and networking fundamentals used in SOC and entry-level security roles. The exercises helped me move beyond memorizing commands by focusing on how to interpret their output and apply it during troubleshooting or security analysis.
+I built this project to strengthen my Linux and networking fundamentals. The exercises helped me move beyond memorizing commands by focusing on how to interpret their output, understand system behavior, and apply the concepts during troubleshooting and security analysis.
 
 ## Skills demonstrated
 
