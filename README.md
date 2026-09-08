@@ -26,7 +26,6 @@ I built this project to strengthen my Linux and networking fundamentals. The exe
 | [Linux fundamentals](linux-fundamentals.md) | Commands, observations, and security relevance from the hands-on exercises |
 | [Kali tools overview](kali-tools-overview.md) | Tool-to-task decisions for five security scenarios |
 | [Lessons learned](notes/lessons-learned.md) | Key takeaways and next steps for deeper SOC practice |
-| [Screenshots guide](screenshots/README.md) | A safe checklist for adding selected lab evidence |
 
 ## Highlights
 
@@ -60,7 +59,7 @@ echo "$SHELL"
 printf '%s\n' "$PATH"
 ```
 
-Outputs are intentionally omitted because they can expose usernames, hostnames, IP addresses, and lab infrastructure. Sanitized screenshots can be added by following the [screenshots guide](screenshots/README.md).
+Outputs are intentionally omitted because they can expose usernames, hostnames, IP addresses, and lab infrastructure. Selected screenshots may be added later after they have been reviewed and sanitized.
 
 ## What I would build next
 
