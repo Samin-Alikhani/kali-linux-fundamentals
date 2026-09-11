@@ -23,9 +23,9 @@ I built this project to strengthen my Linux and networking fundamentals. The exe
 
 | File | Purpose |
 | --- | --- |
-| [Linux fundamentals](linux-fundamentals.md) | Commands, observations, and security relevance from the hands-on exercises |
-| [Kali tools overview](kali-tools-overview.md) | Tool-to-task decisions for five security scenarios |
-| [Lessons learned](notes/lessons-learned.md) | Key takeaways and next steps for deeper SOC practice |
+| [Linux Fundamentals](linux-fundamentals.md) | Commands, observations, and security relevance from the hands-on exercises |
+| [Kali Tools Overview](kali-tools-overview.md) | Tool-to-task decisions for five security scenarios |
+| [Lessons Learned](notes/lessons-learned.md) | Key takeaways and next steps for deeper SOC practice |
 
 ## Highlights
 
