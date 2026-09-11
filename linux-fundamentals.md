@@ -1,6 +1,6 @@
 # Linux Fundamentals
 
-In this lab, I practiced basic Linux commands in Kali Linux and spent time understanding what the output actually meant. This page summarizes the main commands I worked with and what I learned from them. I left out my original screenshots and machine-specific output.
+In this lab, I practiced basic Linux commands in Kali Linux and spent time understanding what the output actually meant. This page summarizes the main commands I worked with and what I learned from them. The screenshots show selected results, with network identifiers removed before publishing.
 
 ## Checking System Start
 
@@ -9,6 +9,8 @@ uptime -s
 ```
 
 This command showed the date and time when the system was last started. I learned that `uptime` can provide more than the amount of time a system has been running; the `-s` option gives the exact start time.
+
+![Output of the uptime command showing the system start time](screenshots/system-boot-time.png)
 
 ## Viewing Network Information
 
@@ -20,6 +22,8 @@ I used `ip addr` to view the network interfaces on my Kali system and find their
 
 This exercise also helped me practice reading CIDR notation. For example, an address ending in `/24` uses the first 24 bits for the network portion. The assignment used the older term "Class C," but `/24` is the notation I am more likely to see today.
 
+![Sanitized output of the ip address command](screenshots/ip-address-redacted.png)
+
 ## Checking Disk Space and Directory Size
 
 ```bash
@@ -29,6 +33,8 @@ du -sh <directory>
 
 This exercise clarified the difference between two similar commands. `df -h` shows the used and available space on mounted filesystems, while `du -sh` shows how much space a particular directory uses. The `-h` option makes the sizes easier to read.
 
+![Output of the df command showing filesystem disk usage](screenshots/disk-usage.png)
+
 ## Finding the Kernel Version
 
 ```bash
@@ -36,6 +42,8 @@ uname -r
 ```
 
 This displayed the version of the Linux kernel running on the system. This information can be useful when checking software compatibility or researching whether a system needs a security update.
+
+![Output of the uname command showing the kernel version](screenshots/kernel-version.png)
 
 ## Looking up a Domain Name
 
@@ -80,6 +88,8 @@ I learned that an environment variable is a named value used by the shell and ot
 
 `PATH` contains the directories the shell searches when I enter a command without its full location. For example, when I type `ls`, the shell searches the directories listed in `PATH` to find the executable. This helped me understand why adding a program's directory to `PATH` allows it to be run by name.
 
+![Output showing the shell, PATH variable, and current working directory](screenshots/shell-environment-and-pwd.png)
+
 ## File Ownership and Deletion
 
 For the final exercise, I created an empty temporary file and changed its owner to `root`:
@@ -93,6 +103,8 @@ rm temp.txt
 ```
 
 I needed `sudo` to change the owner because changing file ownership is a privileged action. I could still delete the file without `sudo`, which showed me that deleting a file depends mainly on the permissions of the directory containing it, not only on who owns the file itself.
+
+![Output showing the temporary file ownership changing to root before deletion](screenshots/file-ownership.png)
 
 ## What I Took Away from the Lab
 
